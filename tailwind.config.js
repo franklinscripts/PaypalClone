@@ -11,6 +11,7 @@ export default {
         'secondary': "#FFFFFF",
         'link': "#1072EB",
         'text':'#0C0C41',
+        "nav-link": '#D1F1FF', 
       }
     },
   },

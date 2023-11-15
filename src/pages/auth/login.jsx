@@ -3,8 +3,9 @@ import React from 'react'
 import Logo from '../../assets/logo.png'
 import Button from '../../components/Button'
 import { useNavigate } from 'react-router-dom'
-
+import { useDisplay } from '../../hooks/useDisplay'
 const Login = () => {
+  const [show, setShow] = useDisplay()
   const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,11 +18,11 @@ const Login = () => {
 
           <form action="" className='flex flex-col gap-4 mt-10' onSubmit={handleSubmit}>
             <div className='border p-3 rounded-md flex flex-col  '>
-              <input type="text" placeholder='Email address'/>
+              <input type="text" placeholder='Email address' className='outline-none'/>
             </div>
             <div className='border p-3 rounded-md flex items-center justify-between  '>
-              <input type="password" placeholder='Enter your password'/>
-              <span className='cursor-pointer text-sm font-bold text-link '>Show</span>
+              <input type={!show ? "password" : 'text' }placeholder='Enter your password' className='outline-none'/>
+              <span className='cursor-pointer text-sm font-bold text-link ' onClick={setShow}>{!show ? "Show" : "Hide"}</span>
 
             </div>
             <span className='text-link text-base font-semibold'>Forgot password?</span>
